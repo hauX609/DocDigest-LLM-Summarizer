@@ -1,22 +1,29 @@
-# 📄 Doc Digest LLM Summarizer
+# Doc Digest LLM Summarizer
 
-A Streamlit web app for summarizing PDF documents using state-of-the-art transformer models.
+An interactive Streamlit app to analyze and summarize PDF documents using advanced Transformer models via Hugging Face and LangChain.
 
-## 🚀 Features
-- Upload and summarize multiple PDFs
-- Choose from Abstractive or Extractive summarization
-- Model options: LaMini-Flan-T5, BART, Pegasus
-- Detailed document analysis with visualizations
-- Download summarized text
+##  Features
 
-## 🧠 Models Supported
-- MBZUAI/LaMini-Flan-T5-248M
-- facebook/bart-large-cnn
-- google/pegasus-xsum
+-  Upload and summarize multiple PDF files
+-  Choose **Abstractive** or **Extractive** summarization
+-  Choose from 3 powerful models: LaMini-Flan-T5, BART, Pegasus
+-  Visual document analysis: word count, reading time, vocabulary diversity
+-  Download the summary
+-  GPU acceleration (if available)
 
-## 📦 Installation
+##  Supported Models
+
+| Model Name              | Model Path on Hugging Face      |
+|-------------------------|----------------------------------|
+| LaMini-Flan-T5-248M     | `MBZUAI/LaMini-Flan-T5-248M`     |
+| BART Large CNN          | `facebook/bart-large-cnn`        |
+| Pegasus XSum            | `google/pegasus-xsum`            |
+
+##  Installation
+
+Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/yourusername/document-summarizer.git
+git clone https://github.com/your-username/document-summarizer.git
 cd document-summarizer
 pip install -r requirements.txt
