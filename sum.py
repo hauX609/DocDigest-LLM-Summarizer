@@ -132,7 +132,8 @@ def llm_pipeline(filepath, summary_length='Medium', summary_type='Abstractive', 
             llm = HuggingFacePipeline(pipeline=pipe)
             summarize_chain = load_summarize_chain(llm, chain_type="map_reduce")
             result = summarize_chain.invoke(documents)
-            summary = result
+            summary = result['output_text'] if isinstance(result, dict) and 'output_text' in result else str(result)
+
         else:
             tokenizer, model = (
                 (base_tokenizer, base_model)
@@ -188,7 +189,7 @@ def displayPDF(file):
 
 def format_summary(summary, display_option):
     if isinstance(summary, dict) and 'summary_text' in summary:
-        summary = summary['summary_text']
+         summary = summary.get('summary_text') or summary.get('output_text') or str(summary)
     elif hasattr(summary, 'page_content'):  # LangChain Document
         summary = summary.page_content
     elif isinstance(summary, list) and isinstance(summary[0], dict) and 'summary_text' in summary[0]:
